@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", serif;
+}
+
+body {
+    background-image: url('img/darktone.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+/* Navbar Container */
+.navbar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    z-index: 2;
+}
+
+/* Logo */
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    transition: 0.5s ease;
+}
+
+.nav-links a:hover {
+    color: #00ac7c;
+    text-decoration: underline 5px #00ac7c;
+}
+
+.nav-links .Home {
+    color: #00ac7c;
+    text-decoration: underline 5px #00ac7c;
+}
+
+/* Hamburger Menu */
+.menu-icon {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: #000000;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+.box {
+    height: 50px;
+}
+
+.box-line {
+    height: 50px;
+    width: 90%;
+    margin: auto;
+    border-bottom: 1px solid #ffffff;
+    mask-image: linear-gradient(to right,
+            transparent,
+            #000000 20% 80%,
+            transparent);
+}
+
+/*membergroud10*/
+.header {
+    height: 100px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+/*sildimg*/
+main {
+    width: 90%;
+    height: 400px;
+    margin: auto;
+    padding: 0 20px;
+    background-color: rgba(219, 219, 219, 0.037);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    width: min(1500px, 90vw);
+    margin: auto;
+    height: 300px;
+    overflow: hidden;
+    mask-image: linear-gradient(to right,
+            transparent,
+            #000000 5% 95%,
+            transparent);
+    border-radius: 20px;
+}
+
+.slider .list {
+    display: flex;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+.slider .list .item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    animation: autoRun 10s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s);
+}
+
+.slider .list .item img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+@keyframes autoRun {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: calc(var(--width) * -1);
+    }
+}
+
+.slider:hover .item {
+    animation-play-state: paused;
+    filter: grayscale(1);
+}
+
+.slider .item:hover {
+    filter: grayscale(0);
+}
+
+/*conetentmem*/
+.conetentmem {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.member-card {
+    background-color: rgba(0, 0, 0, 0.543);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s;
+}
+
+.member-card:hover {
+    transform: scale(1.05);
+    border: #fff 1px solid;
+    box-shadow: 1px 1px 30px #ffffff;
+}
+
+.member-card img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-info h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.member-info p {
+    font-family: "IBM Plex Sans Thai", serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.member-info .contact {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .member-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .member-card img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .introduce-function {
+        flex-direction: column;
+    }
+
+    .introduce-function-text {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .side4-img {
+        flex-direction: column;
+    }
+
+    .side4-img img {
+        margin-bottom: 20px;
+    }
+    .side4-img img{
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.side1 {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introduce-function {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.introduce-function-box,
+.introduce-function-img {
+    flex-basis: 50%;
+}
+
+.introduce-function-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.introduce-function-text h1,
+.side2-head h1,
+.side3-head h1 {
+    font-size: 50px;
+}
+
+.introduce-function-text h3,
+.side2-paragraph p,
+.side3-paragraph p {
+    font-size: 30px;
+}
+
+.introduce-function-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.introduce-function-img img {
+    height: 572px;
+    width: 289px;
+}
+
+.side2,
+.side3 {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.side2-paragraph,
+.side2-head,
+.side3-paragraph,
+.side3-head {
+    width: 100%;
+    text-align: left;
+}
+
+.side2-head h1,
+.side3-head h1 {
+    margin-bottom: 20px;
+}
+
+.side2-paragraph p,
+.side3-paragraph p {
+    font-family: "IBM Plex Sans Thai", serif;
+    font-weight: 500;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.side4-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.side4-img img{
+    height: 300px; /* ความสูงที่ต้องการให้เท่ากัน */
+    width: auto; /* กว้างอัตโนมัติตามสัดส่วน */
+    object-fit: cover; /* ป้องกันภาพยืดเบี้ยว */
+}
+
